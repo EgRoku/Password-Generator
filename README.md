@@ -3,7 +3,7 @@
 ## Created a password generator to get a random password using javascript.
 
 ## Example image
-![alt text](assets/images/screenshot(103).png)
+![Website example ](/assets/images/Screenshot%20(103).png)
 
 ## Link to Live Site
 https://egroku.github.io/Password-Generator/
