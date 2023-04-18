@@ -85,7 +85,7 @@ function generatePassword() {
               alert("You must select at least one of the options: lowercase, uppercase, numbers or special characters")
               showPrompts();
             }
-            //these else if's determine what options the user selects and as long as there is still room for the character will randomly updats the password length by 1 until the desired user amount is reached.
+            //these else if's determine what options the user selects and as long as there is still room for the character will randomly update the password length by 1 until the desired user amount is reached.
             else {
               if (lowerCase === true && pwdCriteria.pwdLength < passwordLength) {
                 var lc = pwdCriteria.pwdLowerCase[Math.floor(Math.random() * 26)]
