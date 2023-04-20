@@ -82,7 +82,7 @@ function generatePassword() {
           while (pwdCriteria.pwdLength < passwordLength) {
             //if statement to make sure the user selects at least one of the options  
             if (lowerCase === false && upperCase === false && numbers === false && specialChar === false) {
-              alert("You must select at least one of the options: lowercase, uppercase, numbers or special characters")
+              alert("You gotta select at least one option pal: lowercase, uppercase, numbers or special characters")
               showPrompts();
             }
             //these else if's determine what options the user selects and as long as there is still room for the character will randomly update the password length by 1 until the desired user amount is reached.
