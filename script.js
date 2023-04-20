@@ -32,7 +32,7 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// adds click listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 //function to generate new password
@@ -48,37 +48,37 @@ function generatePassword() {
   var numbers;
   var specialChar;
 
-  //initialize characters
+  //initializes desired characters
   passwordLength = 0;
   pwdCriteria.pwdLength = 0;
   result = "";
 
-  //check password length
+  //checks the desired password length
   while (passwordLength < 8 || passwordLength > 128) {
     passwordLength = prompt("How many characters would you like your password to be? \nPassword must be more than 8 and less than 128 characters.");
 
-    //if the user presses cancel
+    //if the user presses cancel, returns this message
     if (passwordLength === null) {
       return "Didn't wanna give you one anyways. :(";
     }
     else {
-      //checking if the user enters a number
+      //makes sure the user enters a number; returns this message
       if (!isFinite(passwordLength)) {
         alert("You have to enter a number between 8 - 128");
         return "Gotta enter a number chief";
       }
       else {
-        //check password meets length criteria
+        //checks if the password meets length criteria; if not returns this message
         if (passwordLength < 8 || passwordLength > 128) {
           alert("Password must be between 8 - 128 characters.");
           return "Gotta read the directions";
         }
         else {
 
-          //this calls the internal function to show prompts for the criteria
+          //this show prompts
           showPrompts();
 
-          //this keeps adding characters until it reaches the desired number inputed by user
+          //adds selected characters until it reaches the desired number designated by user
           while (pwdCriteria.pwdLength < passwordLength) {
             //if statement to make sure the user selects at least one of the options  
             if (lowerCase === false && upperCase === false && numbers === false && specialChar === false) {
@@ -87,36 +87,37 @@ function generatePassword() {
             }
             //these else if's determine what options the user selects and as long as there is still room for the character will randomly update the password length by 1 until the desired user amount is reached.
             else {
-              if (lowerCase === true && pwdCriteria.pwdLength < passwordLength) {
-                var lc = pwdCriteria.pwdLowerCase[Math.floor(Math.random() * 26)]
-                result = result + lc;
-                pwdCriteria.pwdLength++;
-              }            
-              if (specialChar === true && pwdCriteria.pwdLength < passwordLength) {
-                var sc = pwdCriteria.pwdCharacter[Math.floor(Math.random() * 32)]
-                result = result + sc;
-                pwdCriteria.pwdLength++;
-              }
               if (upperCase === true && pwdCriteria.pwdLength < passwordLength) {
-                var uc = pwdCriteria.pwdUpperCase[Math.floor(Math.random() * 26)]
-                result = result + uc;
-                pwdCriteria.pwdLength++;
-              }
+                    var uc = pwdCriteria.pwdUpperCase[Math.floor(Math.random() * 26)]
+                    result = result + uc;
+                    pwdCriteria.pwdLength++;
+                  }
+              if (lowerCase === true && pwdCriteria.pwdLength < passwordLength) {
+                    var lc = pwdCriteria.pwdLowerCase[Math.floor(Math.random() * 26)]
+                    result = result + lc;
+                    pwdCriteria.pwdLength++;
+                  }
               if (numbers === true && pwdCriteria.pwdLength < passwordLength) {
-                var num = pwdCriteria.pwdNumber[Math.floor(Math.random() * 10)]
-                result = result + num;
-                pwdCriteria.pwdLength++;
-              }
+                    var num = pwdCriteria.pwdNumber[Math.floor(Math.random() * 10)]
+                    result = result + num;
+                    pwdCriteria.pwdLength++;
+                  }            
+              if (specialChar === true && pwdCriteria.pwdLength < passwordLength) {
+                    var sc = pwdCriteria.pwdCharacter[Math.floor(Math.random() * 32)]
+                    result = result + sc;
+                    pwdCriteria.pwdLength++;
+                  }
+    
             }
           }
         }
       }
     }
 
-    //return the generated password back to the calling function
+    //returns the generated password back to calling function
     return result;
 
-    //internal function to prompt the user for criteria
+    //prompts to select which characters the user would like in their password
     function showPrompts() {
       lowerCase = confirm("Do you want to use lower case letters?");
       upperCase = confirm("Do you want to use upper case letters?");
